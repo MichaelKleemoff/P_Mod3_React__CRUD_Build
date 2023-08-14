@@ -14,12 +14,17 @@ const ShowsList = () => {
 		// .then( console.log )
 	}, []);
 
-	const showsToRender = allShows.map((eachShow) => (
-		<div key={crypto.randomUUID()} className='show-card-styles'>
-			<h4>{eachShow.title}</h4>
-			<h6>{eachShow.duration}</h6>
-		</div>
-	));
+        } 
+        , 
+        [ ]     
+    )
+
+    const showsToRender = allShows.map( (eachShow)=>
+        <div className="show-card-styles">
+            <h4>{ eachShow.title }</h4>
+            <h6>{ eachShow.duration }</h6>
+        </div>
+    )
 
 	return (
 		<div className='shows-list-styles'>

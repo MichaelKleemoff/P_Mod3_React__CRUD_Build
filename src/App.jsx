@@ -6,7 +6,14 @@ import './App.css';
 
 import NavBar from './Components/NavBar.jsx';
 
+<<<<<<< HEAD
 import ShowsList from './Components/ShowsRelevant/ShowsList';
+=======
+import NavBar from './Components/NavBar.jsx'
+
+import ShowsList from './Components/ShowsRelevant/ShowsList'
+import ShowsNewForm from './Components/ShowsRelevant/ShowsNewForm'
+>>>>>>> 63290b0afb83fe4d2a2464485b6b165ba479f74b
 
 // console.log( "Some Default Environment Keys: " , import.meta.env )
 
@@ -33,10 +40,44 @@ function App() {
 					<Route path='/movies' element={<h1>All Movies</h1>} />
 				</Routes>
 
+<<<<<<< HEAD
 				<footer>10.1 ©</footer>
 			</Router>
 		</>
 	);
+=======
+
+        <header>
+          <h1>ScreenViews</h1>
+            {/* <h2>-TEST-{ var10_1 }</h2> */}
+            <br/>
+          <NavBar />
+        </header>
+
+
+
+
+          <Routes>
+
+            <Route path='/' element={ <h1>Home</h1> } />
+            <Route path='/shows' element={ <ShowsList /> } />
+            <Route path='/shows/new' element={ <ShowsNewForm /> } />
+
+            <Route path='/movies' element={ <h1>All Movies</h1> } />
+
+          </Routes>
+
+
+
+
+        <footer>
+          10.1 ©
+        </footer>
+
+      </Router>
+    </>
+  )
+>>>>>>> 63290b0afb83fe4d2a2464485b6b165ba479f74b
 }
 
 export default App;
