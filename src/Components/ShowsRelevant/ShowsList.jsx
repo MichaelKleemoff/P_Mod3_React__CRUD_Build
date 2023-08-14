@@ -1,49 +1,36 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
-import "./ShowsList.css"
+import './ShowsList.css';
 
+const ShowsList = () => {
+	const [allShows, setAllShows] = useState([]);
+	console.log('State of  allShows: ', allShows);
 
-const ShowsList =( )=>{
+	useEffect(() => {
+		// GET : C[R]UD (READ)
+		fetch('http://localhost:5001/api/shows')
+			.then((r) => r.json())
+			.then((arr) => setAllShows(arr));
+		// .then( console.log )
+	}, []);
 
-    const [allShows, setAllShows] = useState( [] )
-        console.log("State of  allShows: ", allShows)
+	const showsToRender = allShows.map((eachShow) => (
+		<div key={crypto.randomUUID()} className='show-card-styles'>
+			<h4>{eachShow.title}</h4>
+			<h6>{eachShow.duration}</h6>
+		</div>
+	));
 
+	return (
+		<div className='shows-list-styles'>
+			<h1>All Shows</h1>
 
-    useEffect( 
-        ()=>{
+			<div className='display-show-cards'>{showsToRender}</div>
+		</div>
+	);
+};
 
-            // GET : C[R]UD (READ)
-            fetch( "http://localhost:8888/api/shows" )
-                .then( r => r.json() )
-                .then( arr => setAllShows(arr) )
-                // .then( console.log )
-
-        } 
-        , 
-        [ ]     
-    )
-
-    const showsToRender = allShows.map( (eachShow)=>
-        <div className="show-card-styles">
-            <h4>{ eachShow.title }</h4>
-            <h6>{ eachShow.duration }</h6>
-        </div>
-    )
-
-
-    return( 
-            <div className="shows-list-styles">
-                <h1>All Shows</h1>
-
-                <div className="display-show-cards">
-                    {showsToRender}
-                </div>
-            </div>
-        )
-}
-
-export default ShowsList
-
+export default ShowsList;
 
 /* 
 
